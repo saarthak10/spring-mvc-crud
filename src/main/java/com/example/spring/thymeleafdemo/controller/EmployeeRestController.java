@@ -34,7 +34,7 @@ public class EmployeeRestController {
     public String saveEmployee(@ModelAttribute("employee") Employee theEmployee){
         //save the employee in database
         employeeService.save(theEmployee);
-        return "redirect:.employees/list";
+        return "redirect:/api/list";
 
     }
 
