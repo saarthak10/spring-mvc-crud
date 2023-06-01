@@ -20,7 +20,7 @@
     <p class="h4 mb-3">Save Employee</p>
 
     <form action="#" th:action="@{/api/save}" th:object="${employee}" method="POST">
-
+        <input type="hidden" th:field="*{id}" />
         <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control mb-3 w-25" required>
         <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control mb-3 w-25" required>
         <input type="email" th:field="*{email}" placeholder="Email" class="form-control mb-3 w-25" required>

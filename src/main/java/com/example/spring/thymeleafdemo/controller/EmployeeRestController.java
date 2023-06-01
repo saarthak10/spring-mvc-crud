@@ -38,6 +38,12 @@ public class EmployeeRestController {
 
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("employeeId") int theId){
+         employeeService.deleteById(theId);
+        return "redirect:/api/list";
+    }
+
 
     // add mapping for PUT /employees - update existing employee
 
@@ -73,6 +79,15 @@ public class EmployeeRestController {
         List<Employee> employees = employeeService.findAll();
         theModel.addAttribute("employees", employees);
         return "list-employees";
+    }
+
+    @GetMapping("/updateForm")
+    public String updateForm(@RequestParam("employeeId") int theId, Model theModel){
+
+        //get employee from  database
+        Employee theEmployee = employeeService.findById(theId);
+        theModel.addAttribute("employee",theEmployee);
+        return "employee-form";
     }
 
 }
